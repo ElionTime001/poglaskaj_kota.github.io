@@ -153,36 +153,12 @@ body {
 
 
 	if (isInAppBrowser()) {
-    // Stop the game and show instructions instead
-    document.body.innerHTML = `
-      <div style="
-        max-width: 600px;
-        margin: 5rem auto;
-        font-family: sans-serif;
-        text-align: center;
-      ">
-        <h1>⚠️ Please open in your browser</h1>
-        <p>This game needs special browser features that Messenger or Instagram do not support.</p>
-        <p><strong>To continue:</strong></p>
-        <ol style="text-align: left; display: inline-block; margin: 1rem auto;">
-          <li>Tap the <strong>•••</strong> or <strong>Share</strong> icon in the top corner.</li>
-          <li>Select <strong>"Open in Browser"</strong> or <strong>"Open in Chrome"</strong>.</li>
-        </ol>
-        <a href="${window.location.href}" target="_blank" rel="noopener" style="
-          display: inline-block;
-          margin-top: 2rem;
-          padding: 1rem 2rem;
-          background: #007acc;
-          color: #fff;
-          text-decoration: none;
-          border-radius: 8px;
-          font-size: 1.2rem;
-        ">Open in Browser</a>
-      </div>
-    `;
-    throw new Error("Blocked in-app browser to prevent broken game load.");
-	}
-	
+		alert("⚠️ Ta gra nie działa dobrze w przeglądarce z Messengera, otwórz link w innej przeglądarce! Aby zrobić to szybko, wystarczy, że klikciesz trzy kropki w lewym górnym rogu i skopiujsz link albo wybierzesz opcję otwarcia w przeglądarce.");
+    // Optionally, try to force open in real browser:
+    // window.open(window.location.href, '_blank');
+    // Or just stop loading the game:
+    // throw new Error("Blocked in-app browser");
+  }
 const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":9045312,"index.wasm":49282035},"focusCanvas":true,"gdextensionLibs":[]};
 const engine = new Engine(GODOT_CONFIG);
 
